@@ -24,7 +24,9 @@ function(
 		 * Initialization method.
 		 **/
 		initialize : function(options) {
+			// use Underscore's micro-templating to compile the template
 			this._exampleTemplate = _.template(ExampleTemplate);
+
 			this._registerEvents();
 		},
 
@@ -32,8 +34,7 @@ function(
 		 * Render the page.
 		 **/
 		render : function(exampleModel) {
-			var self = this,
-				html = this._exampleTemplate(exampleModel.toJSON());
+			var html = this._exampleTemplate(exampleModel.toJSON());
 
 			$(this.el).html(html);
 		},
